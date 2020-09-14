@@ -1,0 +1,140 @@
+@import '../../styles/global.scss';
+
+.header {
+    padding-top: $pad;
+    background-color: #121212;
+}
+
+.contactInfoandBasket {
+    color: white;
+    padding: 2 * $pad 2 * $pad 0 $pad;
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: end;
+    align-items: center;
+    gap: $pad;
+
+    .contactIcon {
+        padding: 0 $pad;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 10px;
+    }
+}
+
+.navbar {
+    width: 100vw;
+    padding: 0 $pad $pad $pad;
+    background-color: #121212;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+        gap: $pad;
+    }
+
+    .navbarGrid {
+        // background-image: url(../../assets/images/header-bg.png);
+        // background-size: 800px;
+        // background-position: center;
+        // background-repeat: no-repeat;
+        display: grid;
+        grid-template-columns: 2fr 0fr;
+        gap: 2 * $pad;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .navbarLogo {
+            width: 100%;
+
+            @media screen and (max-width: 500px) {
+                display: none;
+                grid-template-columns: 1fr;
+                width: 100%;
+            }
+        }
+
+        .navbarLinks {
+            display: grid;
+            grid-template-columns: 1fr 200px 1fr;
+            gap: 2.2rem;
+            position: absolute;
+            left: 75.6%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            justify-content: end;
+            align-items: center;
+
+            @media screen and (max-width: 1080px) {
+                gap: 1rem;
+                left: 72%;
+            }
+
+            @media screen and (max-width: 500px) {
+                transform: translate(0);
+                position: initial;
+                margin-top: 22px;
+                font-size: 15px;
+            }
+
+            .navbarLink {
+                text-decoration: none;
+                color: #ffffff;
+                padding: 4px;
+            }
+
+            .navbarLoginLink {
+                text-decoration: none;
+                border: 2px solid $darkgreen;
+                border-radius: 5px;
+                background-color: $green;
+                color: $darkgreen;
+                padding: 2px;
+                width: 90px;
+                text-align: center;
+
+                @media screen and (max-width: 1080px) {
+                    height: 28px;
+                    line-height: 1;
+                }
+
+                @media screen and (max-width: 500px) {
+                    width: 60px;
+                }
+            }
+        }
+
+    }
+
+    .navbarSearchGrid {
+        display: grid;
+        grid-template-columns: 1fr 50px;
+        gap: 8px;
+        align-items: center;
+
+        .navbarSearchInput {
+            border: 2px solid $darkgreen;
+            border-radius: 5px;
+            height: 46px;
+            background-color: $verydarkgreen;
+            font-size: 1rem;
+            padding-left: 1rem;
+            color: $green;
+            outline: none;
+        }
+
+        .navbarSearchButton {
+            border: 2px solid $darkgreen;
+            border-radius: 5px;
+            height: 46px;
+            font-size: 1.8rem;
+            line-height: 2px;
+            background-color: $green;
+            color: $darkgreen;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@import './components/styles/global.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    background-color: $bg;
+}
