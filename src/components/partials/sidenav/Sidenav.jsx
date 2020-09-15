@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './sidenav.scss';
+import { Link } from 'react-router-dom';
 
 function Sidenav() {
   async function doFetch(url) {
@@ -49,7 +50,12 @@ function Sidenav() {
                 <span>
                   {item.subgroups.map((item, i) => (
                     <div key={i} className='submenu'>
-                      <span className='sidenavsubmenubtn'>{item.title}</span>
+                      <Link
+                        to={'/products/' + item.id}
+                        className='sidenavsubmenubtn'
+                      >
+                        {item.title}
+                      </Link>
                     </div>
                   ))}
                 </span>

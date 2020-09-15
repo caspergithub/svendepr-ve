@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.scss';
 import { HiArrowRight } from 'react-icons/hi';
@@ -7,7 +7,29 @@ import MailIcon from '../../assets/images/mail-icon.png';
 import PhoneIcon from '../../assets/images/phone-icon.png';
 import CartIcon from '../../assets/images/cart-icon.png';
 
-function Navbar() {
+function Navbar(props) {
+  //Log out function
+  const logOut = () => {
+    props.setLoginData(null);
+    localStorage.removeItem('token');
+  };
+
+  // search function
+  const [query, setQuery] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+  console.log('Navbar -> searchResult', searchResult);
+
+  async function getSearchResult() {
+    try {
+      const url = `https://api.mediehuset.net/stringsonline/search/${query}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      setSearchResult(data.items);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <header className='header'>
       <div className='contactInfoandBasket'>
@@ -27,9 +49,15 @@ function Navbar() {
             <Link to='/terms' className='navbarLink'>
               Salgs- og Handelbetingelser
             </Link>
-            <Link to='/login' className='navbarLoginLink'>
-              Login
-            </Link>
+            {props.loginData ? (
+              <span onClick={() => logOut()} className='navbarlogoutbtn'>
+                Log ud
+              </span>
+            ) : (
+              <Link to='/login' className='navbarLoginLink'>
+                Login
+              </Link>
+            )}
           </div>
         </div>
         <div className='navbarSearchGrid'>
@@ -37,8 +65,14 @@ function Navbar() {
             type='text'
             placeholder='Indtast søgeord'
             className='navbarSearchInput'
+            onChange={(e) => setQuery(e.target.value)}
           />
-          <button className='navbarSearchButton'>
+          <button
+            onClick={() => {
+              getSearchResult();
+            }}
+            className='navbarSearchButton'
+          >
             <HiArrowRight />
           </button>
         </div>

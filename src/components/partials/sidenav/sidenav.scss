@@ -5,19 +5,19 @@
     background-color: $verydarkgreen;
     color: $green;
     width: fit-content;
+    height: fit-content;
     padding: $pad;
     margin-bottom: 1rem;
 
-    .sidenavsubmenubtn {
-        background: none;
-        color: $green;
-        border: none;
-        font-size: 0.8rem;
-        display: block;
-        cursor: pointer;
+    @media screen and (max-width: 1080px) {
+        width: 100%;
+    }
 
-        &:hover {
-            color: $ff;
+    .menu {
+        @media screen and (max-width: 1080px) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
         }
     }
 
@@ -37,6 +37,20 @@
         opacity: 0;
         overflow: hidden;
         transition: height 0.5s, opacity 0.5s ease-in-out;
+    }
+
+    .sidenavsubmenubtn {
+        text-decoration: none;
+        background: none;
+        color: $green;
+        border: none;
+        font-size: 0.8rem;
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+            color: $ff;
+        }
     }
 
 }

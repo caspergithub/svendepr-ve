@@ -1,0 +1,26 @@
+@import '../../styles/global.scss';
+
+.breadcrumbsDiv {
+    border-top: 1px solid $darkgreen;
+    border-bottom: 1px solid $darkgreen;
+    padding: 4px 0;
+    margin: 14px 0;
+    color: $green;
+}
+
+.mainSection {
+    padding: $pad;
+    padding-bottom: 5.5rem;
+    color: $ff;
+}
+
+.maincontentgrid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+}

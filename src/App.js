@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/partials/navbar/Navbar'
 import Frontpage from './components/pages/frontpage/Frontpage'
@@ -6,13 +6,27 @@ import Footer from './components/partials/footer/Footer'
 import './app.scss'
 import Terms from './components/pages/terms/Terms';
 import Login from './components/pages/login/Login';
+import Products from './components/pages/products/Products';
 
 function App() {
+
+  // useEffect to console.log the link to postman
   useEffect(() => {
     console.log("link til postman https://documenter.getpostman.com/view/6540576/T1LHHVkg")
   }, [])
 
-  // one fetch to rule them all
+  // state for saving login data
+  const [loginData, setLoginData] = useState(null)
+
+  // useEffect to store login data
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      console.log("SESSIONSTORAGE IS PRESENT")
+      setLoginData(JSON.parse(localStorage.getItem('token')))
+    }
+  }, [])
+
+  // fetch to send down to other pages
   async function doFetch(url) {
     try {
       const response = await fetch(url)
@@ -26,10 +40,13 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar loginData={loginData} setLoginData={setLoginData} />
       <Switch>
+        <Route path="/products">
+          <Products />
+        </Route>
         <Route path="/login">
-          <Login />
+          <Login loginData={loginData} setLoginData={setLoginData} />
         </Route>
         <Route path="/terms">
           <Terms />
