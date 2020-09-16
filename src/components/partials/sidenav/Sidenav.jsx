@@ -51,7 +51,7 @@ function Sidenav() {
                   {item.subgroups.map((item, i) => (
                     <div key={i} className='submenu'>
                       <Link
-                        to={'/products/' + item.id}
+                        to={'/productgroups/' + item.id}
                         className='sidenavsubmenubtn'
                       >
                         {item.title}
@@ -67,7 +67,9 @@ function Sidenav() {
           {brands.items
             ? brands.items.map((item, i) => (
                 <div key={i} className='submenu'>
-                  <span className='sidenavsubmenubtn'>{item.title}</span>
+                  <Link to={'/brands/' + item.id} className='sidenavsubmenubtn'>
+                    {item.title}
+                  </Link>
                 </div>
               ))
             : null}

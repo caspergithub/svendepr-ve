@@ -37,7 +37,9 @@ function Navbar(props) {
         <span>SALES@STRINGSONLINE.COM</span>
         <img src={PhoneIcon} alt='phoneicon' className='contactIcon' />
         <span>+45 98 12 22 68</span>
-        <img src={CartIcon} alt='carticon' className='contactIcon' />
+        <Link to='/cart'>
+          <img src={CartIcon} alt='carticon' className='contactIcon' />
+        </Link>
       </div>
       <nav className='navbar'>
         <div className='navbarGrid'>

@@ -1,0 +1,22 @@
+@import '../../styles/global.scss';
+
+.cartlinegrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $grey;
+    width: 100%;
+}
+
+.cartlineimg {
+    width: 100%;
+    max-width: 240px;
+    max-height: 240px;
+    object-fit: cover;
+}
+
+.cartlinepricediv {
+    text-align: end;
+    margin-right: 1rem;
+}

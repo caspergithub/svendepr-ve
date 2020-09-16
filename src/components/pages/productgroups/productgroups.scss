@@ -1,0 +1,75 @@
+@import '../../styles/global.scss';
+
+.breadcrumbsDiv {
+    border-top: 1px solid $darkgreen;
+    border-bottom: 1px solid $darkgreen;
+    padding: 4px 0;
+    margin: 14px 0;
+    color: $green;
+}
+
+.mainSection {
+    padding: $pad;
+    padding-bottom: 5.5rem;
+    color: $ff;
+}
+
+.maincontentgrid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.productGroupsgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+
+    .productgrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        border: 1px solid grey;
+
+        .productgriditem2 {
+            padding: $pad;
+        }
+
+        .productsImg {
+            width: 100%;
+            max-height: 190px;
+            object-fit: cover;
+        }
+    }
+}
+
+.sortselects {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: end;
+    gap: 8px;
+
+    .sortselect {
+        border: 1px solid $darkgreen;
+        padding: 4px 8px;
+        margin-bottom: 8px;
+        background-color: $green;
+        font-size: 14px;
+        font-family: 'Titillium Web', sans-serif;
+        position: relative;
+        outline: none;
+
+        .sortoption {
+            padding: 4px 8px;
+            border: 1px solid $darkgreen;
+        }
+    }
+}

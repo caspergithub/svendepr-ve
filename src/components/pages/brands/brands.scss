@@ -1,0 +1,59 @@
+@import '../../styles/global.scss';
+
+.brandgrid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border: 1px solid $grey;
+
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+
+    .brandlogo {
+        width: 100%;
+        background-color: #fffffffb;
+    }
+
+    .brandgriditem2 {
+        padding: 1rem;
+    }
+}
+
+.productsgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+
+    .productgrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        border: 1px solid grey;
+
+        .productgriditem2 {
+            padding: $pad;
+        }
+
+        .productsImg {
+            width: 100%;
+            max-height: 190px;
+            object-fit: cover;
+        }
+    }
+}
+
+.brandsh2 {
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+}
+
+.brandsh3 {
+    margin: 0;
+}
+
+.brandsrmlink {
+    text-decoration: none;
+}

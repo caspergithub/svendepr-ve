@@ -8,7 +8,6 @@ import HeroHeader from '../../assets/images/Acoustic001.jpg';
 function Frontpage(props) {
   // fetch products
   const [products, setProducts] = useState([]);
-  //   console.log('Frontpage -> products', products);
 
   async function fetchProducts() {
     const url = `https://api.mediehuset.net/stringsonline/productgroups/2`;
@@ -19,6 +18,33 @@ function Frontpage(props) {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  // add to cart
+  async function addToCart() {
+    let formData = new FormData();
+
+    formData.append('product_id', products ? products.map((item, i) => (
+      item.id
+    )) : null);
+    formData.append('quantity', 1);
+
+    let options = {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Authorization: `Bearer ${props.loginData.access_token}`,
+      },
+    };
+
+    try {
+      const url = `https://api.mediehuset.net/stringsonline/cart`;
+      const response = await fetch(url, options);
+      const data = await response.json();
+      console.log('add to cart', data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <section className='mainSection'>
@@ -56,25 +82,29 @@ function Frontpage(props) {
           <div className='productsgrid'>
             {products
               ? products.slice(0, 4).map((item, i) => (
-                  <div key={i} className='productgrid'>
+                <div key={i} className='productgrid'>
+                  <Link to={"/products/" + item.id}>
                     <img
                       src={item.image_fullpath}
                       alt='products'
                       className='productsImg'
                     />
-                    <div className='productgriditem2'>
-                      <h3>{item.name}</h3>
-                      <p className='colorgrey'>
-                        {item.description_short}{' '}
+                  </Link>
+                  <div className='productgriditem2'>
+                    <h3>{item.name}</h3>
+                    <p className='colorgrey'>
+                      {item.description_short}{' '}
+                      <Link to={"/products/" + item.id} className="frontpagermlink">
                         <span className='productrm'>læs mere</span>
-                      </p>
-                      <div className='pricegrid'>
-                        <p className='price'>Pris: DKK {item.price}</p>
-                        <p className='productatb'>Læg i kurv</p>
-                      </div>
+                      </Link>
+                    </p>
+                    <div className='pricegrid'>
+                      <p className='price'>Pris: DKK {item.price}</p>
+                      <p className='productatb' onClick={() => addToCart()}>Læg i kurv</p>
                     </div>
                   </div>
-                ))
+                </div>
+              ))
               : null}
           </div>
         </div>

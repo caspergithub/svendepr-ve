@@ -24,3 +24,67 @@
         grid-template-columns: 1fr;
     }
 }
+
+.productsGrids {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    border: 1px solid grey;
+
+
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+
+    .singleproductgrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+.productgriditem2 {
+    padding: $pad;
+}
+
+.productImg {
+    width: 100%;
+    max-width: 260px;
+    max-height: 260px;
+    object-fit: cover;
+}
+
+.productrightgrid {
+    padding: $pad;
+}
+
+.productprice {
+    border: 1px solid $grey;
+    padding: 4px 8px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.marginright {
+    margin-right: 4px;
+
+}
+
+.productatb {
+    background-color: $pink;
+    padding: 4px 8px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $green;
+        color: #000000;
+
+    }
+}
+
+.productsbrandlogo {
+    width: 100%;
+    background-color: #fffffff5;
+}

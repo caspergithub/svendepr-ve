@@ -7,6 +7,10 @@ import './app.scss'
 import Terms from './components/pages/terms/Terms';
 import Login from './components/pages/login/Login';
 import Products from './components/pages/products/Products';
+import Brands from './components/pages/brands/Brands';
+import Productgroups from './components/pages/productgroups/Productgroups';
+import SearchItems from './components/pages/searchItems/SearchItems';
+import Cart from './components/pages/cart/Cart';
 
 function App() {
 
@@ -42,8 +46,17 @@ function App() {
     <Router>
       <Navbar loginData={loginData} setLoginData={setLoginData} />
       <Switch>
+        <Route path="/cart">
+          <Cart loginData={loginData} doFetch={doFetch} />
+        </Route>
+        <Route path="/brands">
+          <Brands loginData={loginData} doFetch={doFetch} key={window.location.pathname} />
+        </Route>
         <Route path="/products">
-          <Products />
+          <Products loginData={loginData} doFetch={doFetch} key={window.location.pathname} />
+        </Route>
+        <Route path="/productgroups">
+          <Productgroups loginData={loginData} doFetch={doFetch} key={window.location.pathname} />
         </Route>
         <Route path="/login">
           <Login loginData={loginData} setLoginData={setLoginData} />
@@ -52,7 +65,7 @@ function App() {
           <Terms />
         </Route>
         <Route path="/">
-          <Frontpage doFetch={doFetch} />
+          <Frontpage loginData={loginData} doFetch={doFetch} />
         </Route>
       </Switch>
       <Footer />
