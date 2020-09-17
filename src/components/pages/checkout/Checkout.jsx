@@ -96,7 +96,7 @@ function Checkout(props) {
                         <div>
                             {completed == false && <div>
                                 <h2>Kasse</h2>
-                                <form onSubmit={handleSubmit(onSubmit)} className="checkoutform">
+                                <form onSubmit={handleSubmit(onSubmit)} className="checkoutform" autoComplete="off">
                                     <div>
                                         <div>
                                             <p>Fakturerings- & leveringsadresse</p>

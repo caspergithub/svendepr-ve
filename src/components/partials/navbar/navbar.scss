@@ -87,6 +87,7 @@
                 text-decoration: none;
                 color: #ffffff;
                 padding: 4px;
+                outline: none;
 
                 @media screen and (max-width: 500px) {
                     padding: 4px 0;
@@ -190,4 +191,72 @@
 
 .logolink {
     text-decoration: none;
+    outline: none;
+}
+
+.searchresultdiv {
+    position: absolute;
+    width: 84vw;
+    top: 252px;
+    right: 10px;
+    padding: 5%;
+    background-color: $bg;
+    border: 1px solid $green;
+    color: $ff;
+    z-index: 1;
+
+    @media screen and (max-width: 800px) {
+        top: 396px;
+        right: 8px;
+        width: 98vw;
+    }
+
+    @media screen and (max-width: 500px) {
+        top: 386px;
+        width: 96.2vw;
+    }
+
+    .searchresultinnerdiv {
+        border: 1px solid $grey;
+        display: grid;
+        grid-template-columns: auto 1fr;
+
+        @media screen and (max-width: 500px) {
+            grid-template-columns: 1fr;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .searchresulttextdiv {
+        padding: $pad;
+    }
+
+    .searchproductimage {
+        width: 100%;
+        max-width: 500px;
+        max-height: 500px;
+        object-fit: cover;
+    }
+
+    .searchproductlink {
+        text-decoration: none;
+        color: $ff;
+    }
+
+
+    .searchX {
+        position: absolute;
+        text-align: end;
+        top: 0px;
+        right: 15px;
+        cursor: pointer;
+        background-color: $pink;
+        padding: $pad 2 * $pad;
+        border: 1px solid $darkgreen;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: $verydarkgreen;
+        }
+    }
 }

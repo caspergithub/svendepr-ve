@@ -30,6 +30,10 @@ function Navbar(props) {
     }
   }
 
+  function clearSearch() {
+    setSearchResult('')
+  }
+
   return (
     <header className='header'>
       <div className='contactInfoandBasket'>
@@ -81,6 +85,27 @@ function Navbar(props) {
           </button>
         </div>
       </nav>
+
+
+      {searchResult ? <div className="searchresultdiv">
+        <div className="searchXdiv">
+          <p className="searchX" onClick={() => clearSearch()}>X</p>
+        </div>
+        {searchResult.map((item, i) => (
+          <Link to={'/products/' + item.id} className='searchproductlink' onClick={() => clearSearch()}>
+            <div key="i" className="searchresultinnerdiv">
+              <img src={item.image_fullpath} alt="searchimg" className="searchproductimage" />
+              <div className="searchresulttextdiv">
+                <h3>
+                  {item.name}
+                </h3>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div> : null}
+
+
     </header>
   );
 }

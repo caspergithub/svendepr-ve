@@ -54,10 +54,16 @@
 
     .h3link {
         background-color: $green;
-        border: 2px solid $darkgreen;
+        border: 1px solid $darkgreen;
         border-radius: 5px;
         padding: $pad;
         width: fit-content;
+
+        &:hover {
+            border: 1px solid $green;
+            background-color: $darkgreen;
+            color: $ff;
+        }
     }
 }
 

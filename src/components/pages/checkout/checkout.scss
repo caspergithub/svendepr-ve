@@ -7,6 +7,14 @@
     grid-gap: 15px;
     color: white;
 
+    @media screen and (max-width:1080px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width:500px) {
+        grid-template-columns: 1fr;
+    }
+
     p {
         margin: 0;
         padding: 0;
@@ -55,13 +63,20 @@
         font-weight: 700;
         text-decoration: none;
         font-family: 'Titillium Web';
-        padding: 15px 30px 15px 30px;
-        font-size: 12pt;
-        border: none;
+        padding: 15px 30px;
+        border: 1px solid $green;
+        font-size: 14pt;
         border-radius: 3px;
         color: #2c3737;
-        max-height: 50px;
         margin-top: 38px;
+        height: fit-content;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $darkgreen;
+            color: $ff;
+            border: 1px solid $green;
+        }
     }
 }
 
