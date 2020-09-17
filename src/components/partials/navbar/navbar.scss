@@ -48,13 +48,15 @@
         align-items: center;
         position: relative;
 
+        @media screen and (max-width: 500px) {
+            gap: 2px;
+        }
+
         .navbarLogo {
             width: 100%;
 
             @media screen and (max-width: 500px) {
                 display: none;
-                grid-template-columns: 1fr;
-                width: 100%;
             }
         }
 
@@ -64,7 +66,7 @@
             gap: 2.2rem;
             position: absolute;
             left: 75.6%;
-            top: 50%;
+            top: 47%;
             transform: translate(-50%, -50%);
             justify-content: end;
             align-items: center;
@@ -85,6 +87,10 @@
                 text-decoration: none;
                 color: #ffffff;
                 padding: 4px;
+
+                @media screen and (max-width: 500px) {
+                    padding: 4px 0;
+                }
 
                 &:hover {
                     color: $green;
@@ -128,6 +134,10 @@
                 text-align: center;
                 cursor: pointer;
 
+                @media screen and (max-width: 500px) {
+                    width: 78px;
+                }
+
                 &:hover {
                     background-color: $darkgreen;
                     color: $ff;
@@ -142,6 +152,7 @@
         grid-template-columns: 1fr 50px;
         gap: 8px;
         align-items: center;
+        margin-bottom: 6px;
 
         .navbarSearchInput {
             border: 2px solid $darkgreen;
@@ -175,4 +186,8 @@
             }
         }
     }
+}
+
+.logolink {
+    text-decoration: none;
 }

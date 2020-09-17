@@ -4,6 +4,7 @@ import HomeIcon from '../../assets/images/home-icon.png';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import './products.scss';
+import '../../styles/breadcrumbs.scss'
 
 function Products(props) {
   const history = useHistory();
@@ -62,16 +63,24 @@ function Products(props) {
 
   return (
     <section className='mainSection'>
-      <div className='breadcrumbsDiv'>
-        <span>
-          <Link to='/frontpage' className='bclink'>
-            <img src={HomeIcon} alt='homeicon' />
-            <span className='bcmarginleft'>Forside</span>
-          </Link>
-          <span className='colorgrey'>\</span>
-          {products.item ? products.item.name : null}
-        </span>
+
+      <div className='breadcrumbsdiv'>
+        <Link to='/frontpage' className='bclink'>
+          <img src={HomeIcon} alt='homeicon' />
+          <span className='bcmarginleft'>Forside</span>
+        </Link>
+
+        <div className="breadcrumbsgrid">
+          <span><span className='colorgrey'>\</span>{products.item ? products.item.name : null}</span>
+          {props.loginData ? (
+            <Link to="/orderhistory" className="ohlink">
+              <span className='ordrehistorikbc'>Ordrehistorik</span>
+            </Link>
+          ) : (null
+            )}
+        </div>
       </div>
+
       <div className='maincontentgrid'>
         <Sidenav />
         <div>
@@ -109,8 +118,8 @@ function Products(props) {
               <p className='productatb' onClick={() => addToCart()}>
                 Læg i kurv
               </p>
-              <p>{products.item ? products.item.stock : null} på lager</p>
-              <p>{products.item ? products.item.rating : null} ud af 5 stjerner</p>
+              <p className="textalignend">{products.item ? products.item.stock : null} på lager</p>
+              <p className="textalignend">{products.item ? products.item.rating : null} ud af 5 stjerner</p>
             </div>
           </div>
         </div>

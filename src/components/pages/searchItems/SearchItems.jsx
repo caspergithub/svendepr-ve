@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchItems() {
+function SearchItems(props) {
   return (
     <div>
       <h2>Searched items</h2>

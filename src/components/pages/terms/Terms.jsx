@@ -1,22 +1,31 @@
 import React from 'react';
 import './terms.scss';
+import '../../styles/breadcrumbs.scss';
 import Sidenav from '../../partials/sidenav/Sidenav';
 import HomeIcon from '../../assets/images/home-icon.png';
 import { Link } from 'react-router-dom';
 
-function Terms() {
+function Terms(props) {
   return (
     <section className='mainSection'>
-      <div className='breadcrumbsDiv'>
-        <span>
-          <Link to='/frontpage' className='bclink'>
-            <img src={HomeIcon} alt='homeicon' />
-            <span className='bcmarginleft'>Forside</span>
-          </Link>
-          <span className='colorgrey'>\</span>
-          Salgs- og handelsbetingelser
-        </span>
+
+      <div className='breadcrumbsdiv'>
+        <Link to='/frontpage' className='bclink'>
+          <img src={HomeIcon} alt='homeicon' />
+          <span className='bcmarginleft'>Forside</span>
+        </Link>
+
+        <div className="breadcrumbsgrid">
+          <span><span className='colorgrey'>\</span> Salgs- og handelsbetingelser</span>
+          {props.loginData ? (
+            <Link to="/orderhistory" className="ohlink">
+              <span className='ordrehistorikbc'>Ordrehistorik</span>
+            </Link>
+          ) : (null
+            )}
+        </div>
       </div>
+
       <div className='maincontentgrid'>
         <Sidenav />
         <div>

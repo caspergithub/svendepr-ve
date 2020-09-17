@@ -11,6 +11,8 @@ import Brands from './components/pages/brands/Brands';
 import Productgroups from './components/pages/productgroups/Productgroups';
 import SearchItems from './components/pages/searchItems/SearchItems';
 import Cart from './components/pages/cart/Cart';
+import Checkout from './components/pages/checkout/Checkout';
+import Orderhistory from './components/pages/orderhistory/Orderhistory';
 
 function App() {
 
@@ -46,23 +48,31 @@ function App() {
     <Router>
       <Navbar loginData={loginData} setLoginData={setLoginData} />
       <Switch>
+
+        <Route path="/orderhistory">
+          <Orderhistory loginData={loginData} doFetch={doFetch} />
+        </Route>
+
+        <Route path="/checkout">
+          <Checkout loginData={loginData} doFetch={doFetch} />
+        </Route>
         <Route path="/cart">
           <Cart loginData={loginData} doFetch={doFetch} />
         </Route>
         <Route path="/brands">
-          <Brands loginData={loginData} doFetch={doFetch} key={window.location.pathname} />
+          <Brands loginData={loginData} doFetch={doFetch} />
         </Route>
         <Route path="/products">
-          <Products loginData={loginData} doFetch={doFetch} key={window.location.pathname} />
+          <Products loginData={loginData} doFetch={doFetch} />
         </Route>
         <Route path="/productgroups">
-          <Productgroups loginData={loginData} doFetch={doFetch} key={window.location.pathname} />
+          <Productgroups loginData={loginData} doFetch={doFetch} />
         </Route>
         <Route path="/login">
           <Login loginData={loginData} setLoginData={setLoginData} />
         </Route>
         <Route path="/terms">
-          <Terms />
+          <Terms loginData={loginData} setLoginData={setLoginData} />
         </Route>
         <Route path="/">
           <Frontpage loginData={loginData} doFetch={doFetch} />

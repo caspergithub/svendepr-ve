@@ -4,6 +4,7 @@ import HomeIcon from '../../assets/images/home-icon.png';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import './productgroups.scss';
+import '../../styles/breadcrumbs.scss'
 
 function Products(props) {
   const history = useHistory();
@@ -69,18 +70,24 @@ function Products(props) {
 
   return (
     <section className='mainSection'>
-      <div className='breadcrumbsDiv'>
-        <span>
-          <Link to='/frontpage' className='bclink'>
-            <img src={HomeIcon} alt='homeicon' />
-            <span className='bcmarginleft'>Forside</span>
-          </Link>
-          {/* <span className='colorgrey'>\</span> */}
-          {/* {parentGroup ? parentGroup.items.title : null} */}
-          <span className='colorgrey'>\</span>
-          {productGroups.group ? productGroups.group.title : null}
-        </span>
+
+      <div className='breadcrumbsdiv'>
+        <Link to='/frontpage' className='bclink'>
+          <img src={HomeIcon} alt='homeicon' />
+          <span className='bcmarginleft'>Forside</span>
+        </Link>
+
+        <div className="breadcrumbsgrid">
+          <span><span className='colorgrey'>\</span>{productGroups.group ? productGroups.group.title : null}</span>
+          {props.loginData ? (
+            <Link to="/orderhistory" className="ohlink">
+              <span className='ordrehistorikbc'>Ordrehistorik</span>
+            </Link>
+          ) : (null
+            )}
+        </div>
       </div>
+
       <div className='maincontentgrid'>
         <Sidenav />
         <div>

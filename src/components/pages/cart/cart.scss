@@ -7,6 +7,7 @@
     align-items: center;
     border: 1px solid $grey;
     width: 100%;
+    gap: 8px;
 }
 
 .cartlineimg {
@@ -19,4 +20,47 @@
 .cartlinepricediv {
     text-align: end;
     margin-right: 1rem;
+}
+
+.totalamount {
+    text-align: end;
+    margin-right: 1rem;
+}
+
+.deleteitembtn {
+    background-color: $pink;
+    padding: $pad 2 * $pad;
+    border: 2px solid $darkgreen;
+    border-radius: 5px;
+    margin-left: 8px;
+    color: $ff;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: $bold;
+    cursor: pointer;
+
+    &:hover {
+        color: black;
+    }
+}
+
+.linktocheckout {
+    text-align: end;
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #000000;
+    display: grid;
+    justify-content: end;
+
+    .h3link {
+        background-color: $green;
+        border: 2px solid $darkgreen;
+        border-radius: 5px;
+        padding: $pad;
+        width: fit-content;
+    }
+}
+
+.ohlink {
+    color: $green;
 }

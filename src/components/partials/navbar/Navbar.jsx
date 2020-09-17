@@ -43,7 +43,9 @@ function Navbar(props) {
       </div>
       <nav className='navbar'>
         <div className='navbarGrid'>
-          <img src={NavbarLogo} alt='navbarLogo' className='navbarLogo' />
+          <Link to="/frontpage" className="logolink">
+            <img src={NavbarLogo} alt='navbarLogo' className='navbarLogo' />
+          </Link>
           <div className='navbarLinks'>
             <Link to='/frontpage' className='navbarLink'>
               Forside
@@ -56,10 +58,10 @@ function Navbar(props) {
                 Log ud
               </span>
             ) : (
-              <Link to='/login' className='navbarLoginLink'>
-                Login
-              </Link>
-            )}
+                <Link to='/login' className='navbarLoginLink'>
+                  Login
+                </Link>
+              )}
           </div>
         </div>
         <div className='navbarSearchGrid'>

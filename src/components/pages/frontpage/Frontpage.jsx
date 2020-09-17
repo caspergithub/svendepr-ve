@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './frontpage.scss';
+import '../../styles/breadcrumbs.scss';
 import Sidenav from '../../partials/sidenav/Sidenav';
 import HomeIcon from '../../assets/images/home-icon.png';
 import HeroHeader from '../../assets/images/Acoustic001.jpg';
@@ -23,7 +24,7 @@ function Frontpage(props) {
   async function addToCart() {
     let formData = new FormData();
 
-    formData.append('product_id', products ? products.map((item, i) => (
+    formData.append('product_id', products ? products.map((item) => (
       item.id
     )) : null);
     formData.append('quantity', 1);
@@ -48,12 +49,23 @@ function Frontpage(props) {
 
   return (
     <section className='mainSection'>
-      <div className='breadcrumbsDiv'>
+
+      <div className='breadcrumbsdiv'>
         <Link to='/frontpage' className='bclink'>
           <img src={HomeIcon} alt='homeicon' />
           <span className='bcmarginleft'>Forside</span>
         </Link>
+
+        <div className="breadcrumbsgrid">
+          {props.loginData ? (
+            <Link to="/orderhistory" className="ohlink">
+              <span className='ordrehistorikbc'>Ordrehistorik</span>
+            </Link>
+          ) : (null
+            )}
+        </div>
       </div>
+
       <div className='maincontentgrid'>
         <Sidenav />
         <div>

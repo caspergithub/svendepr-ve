@@ -1,0 +1,33 @@
+@import './global.scss';
+
+.breadcrumbsdiv {
+    border-top: 1px solid $darkgreen;
+    border-bottom: 1px solid $darkgreen;
+    padding: 4px 0;
+    margin: 14px 0;
+    color: $green;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    position: relative;
+}
+
+.breadcrumbsgrid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.ordrehistorikbc {
+    text-align: end;
+    margin-right: 8px;
+    position: absolute;
+    right: 0;
+}
+
+.colorgrey {
+    color: $grey;
+    margin: 0 0.2rem;
+}
+
+.bcmarginleft {
+    margin-left: 0.2rem;
+}

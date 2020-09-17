@@ -1,0 +1,111 @@
+@import '../../styles/global.scss';
+
+.checkoutform {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    box-sizing: border-box;
+    grid-gap: 15px;
+    color: white;
+
+    p {
+        margin: 0;
+        padding: 0;
+        padding-bottom: 5px;
+    }
+
+    .error {
+        color: red;
+        font-size: 12px;
+    }
+
+    input,
+    select {
+        outline: none;
+        padding: $pad;
+        margin-top: 8px;
+        border-radius: 3px;
+        text-decoration: none;
+        border: 1px solid #00f9b760;
+        background: rgba(43, 87, 129, 0.096);
+        width: 100%;
+        max-width: 300px;
+        color: #00f9b6;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: #00f9b6;
+        }
+    }
+
+    .disclaimer {
+        background: #00f9b71e;
+        color: #00f9b6;
+        font-size: 9pt;
+        padding: 20px;
+        max-width: 300px;
+        width: 100%;
+        border-radius: 3px;
+        font-weight: 200;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .checkoutsubmitbtn {
+        background: #00f9b6;
+        font-weight: 700;
+        text-decoration: none;
+        font-family: 'Titillium Web';
+        padding: 15px 30px 15px 30px;
+        font-size: 12pt;
+        border: none;
+        border-radius: 3px;
+        color: #2c3737;
+        max-height: 50px;
+        margin-top: 38px;
+    }
+}
+
+.thankyougrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 8px;
+
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+
+    .thankyou {
+        border: 1px solid $green;
+        display: grid;
+        justify-content: center;
+        padding: 5%;
+
+        .thankyouh2 {
+            color: #000000;
+            background-color: $green;
+            padding: 4px 4 * $pad;
+            border-radius: 5px;
+            width: fit-content;
+        }
+    }
+
+    .deliveryinfo {
+        padding: 10%;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.ohlink {
+    color: $green;
+}

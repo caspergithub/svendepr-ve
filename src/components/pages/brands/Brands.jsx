@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Sidenav from '../../partials/sidenav/Sidenav';
 import { useHistory } from 'react-router-dom';
 import './brands.scss';
+import '../../styles/breadcrumbs.scss'
 
 function Brands(props) {
   const history = useHistory();
@@ -15,9 +16,9 @@ function Brands(props) {
   // fetch brands
   const [brands, setBrands] = useState([]);
   console.log('Brands -> brands', brands);
-  console.log(brands.item ? brands.item.products.map((item, i) => (
-    item.id
-  )) : null)
+  // console.log(brands.item ? brands.item.products.map((item, i) => (
+  //   item.id
+  // )) : null)
 
   async function fetchBrands() {
     const url = `https://api.mediehuset.net/stringsonline/brands/` + urlId;
@@ -65,18 +66,24 @@ function Brands(props) {
 
   return (
     <section className='mainSection'>
-      <div className='breadcrumbsDiv'>
-        <span>
-          <Link to='/frontpage' className='bclink'>
-            <img src={HomeIcon} alt='homeicon' />
-            <span className='bcmarginleft'>Forside</span>
-          </Link>
-          <span className='colorgrey'>\</span>
-          Brands
-          <span className='colorgrey'>\</span>
-          {brands.item ? brands.item.title : null}
-        </span>
+
+      <div className='breadcrumbsdiv'>
+        <Link to='/frontpage' className='bclink'>
+          <img src={HomeIcon} alt='homeicon' />
+          <span className='bcmarginleft'>Forside</span>
+        </Link>
+
+        <div className="breadcrumbsgrid">
+          <span><span className='colorgrey'>\</span>{brands.item ? brands.item.title : null}</span>
+          {props.loginData ? (
+            <Link to="/orderhistory" className="ohlink">
+              <span className='ordrehistorikbc'>Ordrehistorik</span>
+            </Link>
+          ) : (null
+            )}
+        </div>
       </div>
+
       <div className='maincontentgrid'>
         <Sidenav />
         <div>

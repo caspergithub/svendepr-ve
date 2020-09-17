@@ -64,28 +64,6 @@
     }
 }
 
-.bcgrid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-}
-
-.width100 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.ordrehistorikbc {
-    align-self: end;
-    color: $grey;
-    text-align: end;
-}
-
-.colorgrey {
-    color: $grey;
-    margin: 0 0.2rem;
-}
-
-.bcmarginleft {
-    margin-left: 0.2rem;
+.ohlink {
+    color: $green;
 }
