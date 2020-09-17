@@ -123,11 +123,13 @@ function Cart(props) {
                 </p>
               </div>
             </div>
-          )) : null}
+          )) : (<div><h2>Din kurv er tom</h2></div>)}
           <h3 className="totalamount">BELØB DKK {sumwithcommas},00</h3>
-          <Link to="/checkout" className="linktocheckout">
-            <h3 className="h3link">TIL KASSEN</h3>
-          </Link>
+          {cart.cartlines ?
+            <Link to="/checkout" className="linktocheckout">
+              <h3 className="h3link">TIL KASSEN</h3>
+            </Link>
+            : null}
         </div>
       </div>
     </section>
