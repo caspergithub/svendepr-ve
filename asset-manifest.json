@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/svendepr-ve/static/css/main.703959f0.chunk.css",
+    "main.js": "/svendepr-ve/static/js/main.d7b27726.chunk.js",
+    "main.js.map": "/svendepr-ve/static/js/main.d7b27726.chunk.js.map",
+    "runtime-main.js": "/svendepr-ve/static/js/runtime-main.e39fbbd9.js",
+    "runtime-main.js.map": "/svendepr-ve/static/js/runtime-main.e39fbbd9.js.map",
+    "static/js/2.219e1541.chunk.js": "/svendepr-ve/static/js/2.219e1541.chunk.js",
+    "static/js/2.219e1541.chunk.js.map": "/svendepr-ve/static/js/2.219e1541.chunk.js.map",
+    "index.html": "/svendepr-ve/index.html",
+    "precache-manifest.87208910f0cfb55b16b3929ce8377e68.js": "/svendepr-ve/precache-manifest.87208910f0cfb55b16b3929ce8377e68.js",
+    "service-worker.js": "/svendepr-ve/service-worker.js",
+    "static/css/main.703959f0.chunk.css.map": "/svendepr-ve/static/css/main.703959f0.chunk.css.map",
+    "static/js/2.219e1541.chunk.js.LICENSE.txt": "/svendepr-ve/static/js/2.219e1541.chunk.js.LICENSE.txt",
+    "static/media/Acoustic001.jpg": "/svendepr-ve/static/media/Acoustic001.dd95ec61.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e39fbbd9.js",
+    "static/js/2.219e1541.chunk.js",
+    "static/css/main.703959f0.chunk.css",
+    "static/js/main.d7b27726.chunk.js"
+  ]
+}
