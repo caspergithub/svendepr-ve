@@ -101,6 +101,7 @@
             padding: 4px 4 * $pad;
             border-radius: 5px;
             width: fit-content;
+            justify-self: center;
         }
     }
 
@@ -123,4 +124,29 @@ input[type=number] {
 
 .ohlink {
     color: $green;
+}
+
+.marginLeft {
+    margin-left: 8px;
+}
+
+.margin2px0 {
+    margin: 2px 0;
+}
+
+.colorgreen {
+    color: $green;
+}
+
+.textalignend {
+    text-align: end;
+    margin-left: 8px;
+    display: grid;
+    align-items: flex-end;
+}
+
+.pnameandprice {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4px;
 }

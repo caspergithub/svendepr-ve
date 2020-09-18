@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom'
 import './checkout.scss'
@@ -36,7 +36,7 @@ function Checkout(props) {
                 .then(response => response.json())
                 .then(data => setMyorderId(data.order_id))
             setCompleted(true)
-            getMyorder()
+
         }
         catch (error) {
             console.error(error);
@@ -44,28 +44,35 @@ function Checkout(props) {
 
     }
 
-    // fetch myorder with order id
+    // fetch myorder with order id for the receipt
     const [myorderId, setMyorderId] = useState('')
+    // console.log("Checkout -> myorderId", myorderId)
     const [myorder, setMyorder] = useState('')
     console.log("Checkout -> myorder", myorder)
 
     const getMyorder = async () => {
+        console.log(myorderId)
         let options = {
             headers: {
                 'Authorization': `Bearer ${props.loginData.access_token}`
             }
         }
         try {
-            const url = `
-          https://api.mediehuset.net/stringsonline/orders/` + myorderId;
-            const response = await fetch(url, options);
-            const data = await response.json();
-            setMyorder(data);
+            if (myorderId) {
+                const url = `https://api.mediehuset.net/stringsonline/orders/` + myorderId;
+                const response = await fetch(url, options);
+                const data = await response.json();
+                setMyorder(data);
+            }
         }
         catch (error) {
             console.log(error)
         }
     }
+
+    useEffect(() => {
+        getMyorder()
+    }, [myorderId])
 
     return (
         <section className="mainSection">
@@ -193,14 +200,53 @@ function Checkout(props) {
                                 <div className="thankyougrid">
                                     <div className="thankyou">
                                         <h2 className="thankyouh2">Tak for din bestilling</h2>
-                                        <p>Ordrenr.</p>
-                                        <p>Product</p>
-                                        <p>Moms</p>
-                                        <p>I alt </p>
+                                        <p>Ordrenr. <span className="colorgreen">{myorder.order && myorder.order.id}</span></p>
+                                        <p>Product <span>{myorder.order && myorder.order.orderlines.map((item, i) => (
+                                            <span key={i} className="pnameandprice">
+                                                <span className="colorgreen">
+                                                    {item.name}
+                                                </span>
+                                                <span className="textalignend">
+                                                    DKK {item.price}
+                                                </span>
+                                            </span>
+                                        ))}</span></p>
+
+                                        <p>I alt {myorder.order && myorder.order.total}</p>
                                     </div>
                                     <div className="deliveryinfo">
                                         <h3>Faktureringsadresse</h3>
+                                        <p className="margin2px0">
+                                            {myorder.order && myorder.order.firstname}
+                                            <span className="marginLeft">
+                                                {myorder.order && myorder.order.lastname}
+                                            </span>
+                                        </p>
+                                        <p className="margin2px0">
+                                            {myorder.order && myorder.order.address}
+                                        </p>
+                                        <p className="margin2px0">
+                                            {myorder.order && myorder.order.zipcode}
+                                            <span className="marginLeft">
+                                                {myorder.order && myorder.order.city}
+                                            </span>
+                                        </p>
                                         <h3>leveringsadresse</h3>
+                                        <p className="margin2px0">
+                                            {myorder.order && myorder.order.firstname}
+                                            <span className="marginLeft">
+                                                {myorder.order && myorder.order.lastname}
+                                            </span>
+                                        </p>
+                                        <p className="margin2px0">
+                                            {myorder.order && myorder.order.address}
+                                        </p>
+                                        <p className="margin2px0">
+                                            {myorder.order && myorder.order.zipcode}
+                                            <span className="marginLeft">
+                                                {myorder.order && myorder.order.city}
+                                            </span>
+                                        </p>
                                     </div>
                                 </div>
                             }

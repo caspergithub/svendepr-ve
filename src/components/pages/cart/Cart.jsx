@@ -123,7 +123,7 @@ function Cart(props) {
                 </p>
               </div>
             </div>
-          )) : (<div><h2>Din kurv er tom</h2></div>)}
+          )) : (<div className="borderdiv"><h2>Din kurv er tom</h2></div>)}
           <h3 className="totalamount">BELØB DKK {sumwithcommas},00</h3>
           {cart.cartlines ?
             <Link to="/checkout" className="linktocheckout">

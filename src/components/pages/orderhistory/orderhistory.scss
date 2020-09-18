@@ -1,0 +1,39 @@
+@import '../../styles/global.scss';
+
+.orderhistorydiv {
+    width: 100%;
+    max-width: 80vw;
+
+    .orderhistoryinnerdiv {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        border: 1px solid $grey;
+        border-radius: 3px;
+        margin-bottom: 1rem;
+
+        p {
+            padding: 0 2 * $pad;
+        }
+
+        .orderhistorypdiv1 {
+            border: 1px solid $grey;
+            border-radius: 3px;
+        }
+
+        .orderhistorypdiv2 {
+            text-align: center;
+        }
+
+        .orderhistorypdiv3 {
+            border: 1px solid $grey;
+            border-radius: 3px;
+            background-color: $darkgrey;
+            text-align: center;
+
+            .theorderid {
+                color: $green;
+                margin-left: 8px;
+            }
+        }
+    }
+}

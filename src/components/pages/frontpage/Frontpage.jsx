@@ -41,7 +41,7 @@ function Frontpage(props) {
       const url = `https://api.mediehuset.net/stringsonline/cart`;
       const response = await fetch(url, options);
       const data = await response.json();
-      console.log('add to cart', data);
+      // console.log('add to cart', data);
     } catch (error) {
       console.log(error);
     }
